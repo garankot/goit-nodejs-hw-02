@@ -26,7 +26,6 @@ const getContactById = async (id) => {
     console.error(error.message);
   }
 };
-// getContactById("10")
 
 const addContact = async (name, email, phone) => {
   try {
@@ -43,7 +42,6 @@ const addContact = async (name, email, phone) => {
     console.error(error.message);
   }
 };
-// addContact("Taras", "mail@gmail.com", "380980000000");
 
 const removeContact = async (id) => {
   try {
@@ -61,7 +59,6 @@ const removeContact = async (id) => {
     console.error(error.message);
   }
 };
-// removeContact("3e894990-db3f-11ec-b15a-1f8b2b89493c");
 
 const updateContact = async (id, name, email, phone) => {
   try {
@@ -79,8 +76,6 @@ const updateContact = async (id, name, email, phone) => {
     console.error(error.message);
   }
 };
-
-// updateContact("3e894990-db3f-11ec-b15a-1f8b2b89493c", "Ta");
 
 module.exports = {
   listContacts,
