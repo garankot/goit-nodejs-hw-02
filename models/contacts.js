@@ -13,7 +13,6 @@ const listContacts = async () => {
     console.error(error.message);
   }
 };
-// listContacts();
 
 const getContactById = async (id) => {
   try {
