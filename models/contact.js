@@ -27,7 +27,7 @@ const schemaCreate = Joi.object({
     })
     .required(),
   phone: Joi.string().max(12).required(),
-  favorite: Joi.boolean(false),
+  favorite: Joi.boolean(),
 });
 
 const schemaPatch = Joi.object({

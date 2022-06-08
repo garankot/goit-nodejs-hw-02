@@ -21,9 +21,9 @@ const deleteById = async (id) => {
 };
 
 module.exports = {
-  updateById,
-  create,
-  getById,
   getAll,
+  getById,
+  create,
+  updateById,
   deleteById,
 };

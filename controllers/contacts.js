@@ -1,5 +1,4 @@
-const res = require("express/lib/response");
-const { contacts } = require("../services/contact.service");
+const { contacts } = require("../services");
 
 const listContacts = async (req, res, next) => {
   try {
@@ -10,10 +9,10 @@ const listContacts = async (req, res, next) => {
   }
 };
 
-const getContactById = async (req, resp, next) => {
+const getContactById = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const contact = allContacts.getById(id);
+    const contact = contacts.getById(id);
     if (!contact) {
       throw createError(404, "Not found");
     }
