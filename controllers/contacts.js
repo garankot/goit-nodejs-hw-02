@@ -1,4 +1,5 @@
 const { contacts } = require("../services");
+const { createError } = require("../helpers/errors");
 
 const listContacts = async (req, res, next) => {
   try {
@@ -30,7 +31,7 @@ const addContact = async (req, res, next) => {
     if (error.message.includes("duplicate")) {
       error.status = 400;
     }
-    next(e);
+    next(error);
   }
 };
 
