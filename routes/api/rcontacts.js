@@ -1,7 +1,7 @@
 const express = require("express");
 const Joi = require("joi");
 const router = express.Router();
-const contacts = require("../../models/contacts");
+const contacts = require("../../controllers/contacts");
 
 const schema = Joi.object({
   name: Joi.string().min(3).required(),
