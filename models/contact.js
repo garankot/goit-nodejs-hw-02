@@ -31,11 +31,11 @@ const schemaCreate = Joi.object({
     })
     .required(),
   phone: Joi.string().max(12).required(),
-  favorite: Joi.boolean(),
+  favorite: Joi.bool().required(),
 });
 
 const schemaPatch = Joi.object({
-  available: Joi.bool().required(),
+  favorite: Joi.bool().required(),
 });
 
 const Contact = model("contact", schema);

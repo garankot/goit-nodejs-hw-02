@@ -16,11 +16,11 @@ router.get("/", listContacts);
 
 router.get("/:id", getContactById);
 
-router.post("/", validateRequest(schemaCreate), addContact);
+router.post("/", addContact);
 
 router.put("/:id", updateContact);
 
-router.patch("/:id/favorite", validateRequest(schemaPatch), updateFavorite);
+router.patch("/:id/favorite", updateFavorite);
 
 router.delete("/:id", removeContact);
 
