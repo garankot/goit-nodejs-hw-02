@@ -10,7 +10,7 @@ const {
   updateFavorite,
 } = require("../../controllers/contacts");
 const { validateRequest } = require("../../middlewares/validateRequest");
-const { schemaCreate, schemaPatch } = require("../../models/contact");
+const { schemaCreate, schemaPatch } = require("../../models");
 
 router.get("/", listContacts);
 
