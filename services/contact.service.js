@@ -1,7 +1,7 @@
 const { Contact } = require("../models/contact");
 
 const getAll = async () => {
-  Contact.find({}, {}, {});
+  return Contact.find();
 };
 
 const getById = async (id) => {

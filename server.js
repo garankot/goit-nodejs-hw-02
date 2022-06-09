@@ -16,7 +16,7 @@ mongoose
   .then(() => {
     console.log(`Server is on port ${PORT}`);
   })
-  .catch((err) => {
-    console.log("ERROR", err);
+  .catch((error) => {
+    console.log("ERROR", error);
     process.exit(1);
   });
