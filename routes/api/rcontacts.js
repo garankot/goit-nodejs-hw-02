@@ -9,18 +9,18 @@ const {
   removeContact,
   updateFavorite,
 } = require("../../controllers/contacts");
-const { validateRequest } = require("../../middlewares");
-const { schemaCreate, schemaPatch } = require("../../models");
+const { validateRequest } = require("../../middlewares/validateRequest");
+const { schemaCreate, schemaPatch } = require("../../models/contact");
 
 router.get("/", listContacts);
 
 router.get("/:id", getContactById);
 
-router.post("/", addContact);
+router.post("/", validateRequest(schemaCreate), addContact);
 
 router.put("/:id", updateContact);
 
-router.patch("/:id/favorite", updateFavorite);
+router.patch("/:id/favorite", validateRequest(schemaPatch), updateFavorite);
 
 router.delete("/:id", removeContact);
 
