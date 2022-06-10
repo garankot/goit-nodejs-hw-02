@@ -9,7 +9,7 @@ const {
   removeContact,
   updateFavorite,
 } = require("../../controllers/contacts");
-const { validateRequest } = require("../../middlewares/validateRequest");
+const { validateRequest } = require("../../middlewares");
 const { schemaCreate, schemaPatch } = require("../../models");
 
 router.get("/", listContacts);
