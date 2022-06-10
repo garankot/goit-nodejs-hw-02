@@ -39,7 +39,7 @@ const schemaCreate = Joi.object({
 });
 
 const schemaPatch = Joi.object({
-  favorite: Joi.bool().required(),
+  favorite: Joi.bool().required().messages,
 });
 
 const Contact = model("contact", schema);
