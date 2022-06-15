@@ -17,7 +17,7 @@ const schema = new Schema({
     type: Boolean,
     default: false,
   },
-});
+},{ timestamps: true });
 
 const schemaCreate = Joi.object({
   name: Joi.string().min(3).required(),

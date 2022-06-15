@@ -3,7 +3,7 @@ const { createError } = require("../helpers/errors");
 
 const listContacts = async (req, res, next) => {
   try {
-    const allContacts = await contacts.getAll();
+    const allContacts = await contacts.getAll(req.query);
     res.json(allContacts);
   } catch (error) {
     next(error);
@@ -25,7 +25,10 @@ const getContactById = async (req, res, next) => {
 
 const addContact = async (req, res, next) => {
   try {
-    const contact = await contacts.create(req.body);
+    console.log(req.user);
+
+    const id = req.user;
+    const contact = await contacts.create(req.body, id);
     res.status(201).json(contact);
   } catch (error) {
     if (error.message.includes("duplicate")) {

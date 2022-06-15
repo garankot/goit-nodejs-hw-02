@@ -1,4 +1,4 @@
-const authService = require("../services/auth.service");
+const { authService } = require("../services/auth.service");
 
 const registerUser = async (req, res, next) => {
   try {
@@ -6,7 +6,6 @@ const registerUser = async (req, res, next) => {
     res.status(201).json({
       name: user.name,
       email: user.email,
-      role: user.role,
       id: user._id,
     });
   } catch (e) {

@@ -39,7 +39,7 @@ const schemaRegister = Joi.object({
     })
     .required(),
   password: Joi.string().required(),
-  favorite: Joi.bool().required(),
+  subscription: Joi.string().required(),
 });
 
 const schemaLogin = Joi.object({
