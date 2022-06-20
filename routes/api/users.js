@@ -3,7 +3,7 @@ const {
   registerUser,
   loginUser,
   logoutUser,
-} = require("../../controllers/auth");
+} = require("../../controllers/users");
 const router = express.Router();
 const { schemaRegister, schemaLogin } = require("../../models/user");
 const { validateRequest } = require("../../middlewares/validateRequest");

@@ -1,9 +1,10 @@
 const { authenticateUser } = require("../services/auth.service");
+
 const authError = { status: 401, message: "Not authorized" };
 
 const auth = async (req, res, next) => {
-  const { authorization = "" } = req.headers;
-  const [bearer, token] = authorization.split(" ");
+  const { signup = "" } = req.headers;
+  const [bearer, token] = signup.split(" ");
 
   if (bearer !== "Bearer" || !token) {
     next(authError);

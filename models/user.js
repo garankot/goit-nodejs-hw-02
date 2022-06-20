@@ -4,6 +4,9 @@ const Joi = require("joi");
 
 const schema = new Schema(
   {
+    name: {
+      type: String,
+    },
     password: {
       type: String,
       required: [true, "Password is required"],
@@ -39,7 +42,7 @@ const schemaRegister = Joi.object({
     })
     .required(),
   password: Joi.string().required(),
-  subscription: Joi.string().required(),
+  // subscription: Joi.string().required(),
 });
 
 const schemaLogin = Joi.object({
