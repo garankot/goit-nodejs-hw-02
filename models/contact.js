@@ -17,7 +17,11 @@ const schema = new Schema({
     type: Boolean,
     default: false,
   },
-},{ timestamps: true });
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+  },
+});
 
 const schemaCreate = Joi.object({
   name: Joi.string().min(3).required(),

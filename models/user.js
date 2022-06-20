@@ -25,10 +25,6 @@ const schema = new Schema(
       type: String,
       default: null,
     },
-    owner: {
-      type: Schema.Types.ObjectId,
-      ref: "user",
-    },
   },
   { timestamps: true }
 );
@@ -42,7 +38,7 @@ const schemaRegister = Joi.object({
     })
     .required(),
   password: Joi.string().required(),
-  // subscription: Joi.string().required(),
+  subscription: Joi.string(),
 });
 
 const schemaLogin = Joi.object({

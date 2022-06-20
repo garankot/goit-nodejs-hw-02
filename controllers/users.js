@@ -3,10 +3,11 @@ const authService = require("../services/auth.service");
 const registerUser = async (req, res, next) => {
   try {
     const user = await authService.registerUser(req.body);
+
     res.status(201).json({
       name: user.name,
       email: user.email,
-      id: user.id,
+      id: user._id,
     });
   } catch (e) {
     next(e);
@@ -24,7 +25,7 @@ const loginUser = async (req, res, next) => {
 
 const logoutUser = async (req, res, next) => {
   try {
-    await authService.logoutUser(req.user._id);
+    await authService.logoutUser(req.user.id);
     res.sendStatus(204);
   } catch (e) {
     next(e);
