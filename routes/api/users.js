@@ -7,10 +7,11 @@ const {
 const router = express.Router();
 const { schemaRegister, schemaLogin } = require("../../models/user");
 const { validateRequest } = require("../../middlewares/validateRequest");
-const { auth } = require("../../middlewares/auth");
+const { auth, validateToken, validateId } = require("../../middlewares");
 
 router.post("/signup", validateRequest(schemaRegister), registerUser);
 router.post("/login", validateRequest(schemaLogin), loginUser);
 router.post("/logout", auth, logoutUser);
+router.get("/current", auth);
 
 module.exports = router;
