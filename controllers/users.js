@@ -33,8 +33,18 @@ const logoutUser = async (req, res, next) => {
   }
 };
 
+const getCurrentUser = async (req, res, next) => {
+  try {
+    await authService.authenticateUser(req.body);
+    res.sendStatus(200);
+  } catch (e) {
+    next(e);
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser,
   logoutUser,
+  getCurrentUser,
 };
