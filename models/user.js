@@ -42,7 +42,12 @@ const schemaRegister = Joi.object({
 });
 
 const schemaLogin = Joi.object({
-  email: Joi.string().required(), //TODO: add pattern
+  email: Joi.string()
+  .email({
+    minDomainSegments: 2,
+    tlds: { allow: ["com", "net"] },
+  })
+  .required(),
   password: Joi.string().required(),
 });
 

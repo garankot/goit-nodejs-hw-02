@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 const registerUser = async (userData) => {
   const result = await User.findOne({ email: userData.email });
   if (result) {
-    throw createError(409, "User already exists.");
+    throw createError(409, "Email in use");
   }
   const password = userData.password;
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -38,8 +38,8 @@ const loginUser = async ({ email, password }) => {
   };
 };
 
-const logoutUser = async (id) => {
-  await User.findByIdAndUpdate(id, { token: null });
+const logoutUser = async (_id) => {
+  await User.findByIdAndUpdate(_id, { token: null });
 };
 
 const authenticateUser = async (token) => {

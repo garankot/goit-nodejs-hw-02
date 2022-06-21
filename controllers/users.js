@@ -8,6 +8,7 @@ const registerUser = async (req, res, next) => {
       name: user.name,
       email: user.email,
       id: user._id,
+      description: user.description,
     });
   } catch (e) {
     next(e);
@@ -25,7 +26,7 @@ const loginUser = async (req, res, next) => {
 
 const logoutUser = async (req, res, next) => {
   try {
-    await authService.logoutUser(req.user.id);
+    await authService.logoutUser(req.user._id);
     res.sendStatus(204);
   } catch (e) {
     next(e);
