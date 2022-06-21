@@ -1,3 +1,4 @@
+const { user } = require("../models");
 const authService = require("../services/auth.service");
 
 const registerUser = async (req, res, next) => {
@@ -35,8 +36,12 @@ const logoutUser = async (req, res, next) => {
 
 const getCurrentUser = async (req, res, next) => {
   try {
-    await authService.authenticateUser(req.body);
-    res.sendStatus(200);
+    const data = await authService.authenticateUser(req.user.token);
+    console.log(req.body);
+    res.status(200).json({
+      email: data.email,
+      subscription: data.subscription,
+    });
   } catch (e) {
     next(e);
   }
