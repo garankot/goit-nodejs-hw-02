@@ -25,9 +25,9 @@ const getContactById = async (req, res, next) => {
 
 const addContact = async (req, res, next) => {
   try {
-    const { id } = req.user;
+    const { _id } = req.user;
     console.log(req.user);
-    const contact = await contacts.create(req.body, id);
+    const contact = await contacts.create(req.body, _id);
     res.status(201).json(contact);
   } catch (error) {
     if (error.message.includes("duplicate")) {
