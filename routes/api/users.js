@@ -16,7 +16,7 @@ router.post("/signup", validateRequest(schemaRegister), registerUser);
 router.post("/login", validateRequest(schemaLogin), loginUser);
 router.post("/logout", auth, logoutUser);
 router.get("/current", auth, getCurrentUser);
-router.get(
+router.patch(
   "/avatars",
   auth,
   upload.single("avatar"),
@@ -25,7 +25,6 @@ router.get(
       const { _id: id } = req.user;
       const avatarURL = await uploadImage(id, req.file);
       await updateUser(id, { avatarURL });
-
       res.json({ avatarURL });
     } catch (e) {
       next(e);
