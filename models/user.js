@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const gravatar = require("gravatar");
 
 const Joi = require("joi");
 
@@ -25,6 +26,12 @@ const schema = new Schema(
       type: String,
       default: null,
     },
+    avatarURL: {
+      type: String,
+      default: function () {
+        return gravatar.url(this.email, {}, true);
+      },
+    },
   },
   { timestamps: true }
 );
@@ -39,6 +46,7 @@ const schemaRegister = Joi.object({
     .required(),
   password: Joi.string().required(),
   subscription: Joi.string(),
+  // avatarURL: Joi.string(),
 });
 
 const schemaLogin = Joi.object({

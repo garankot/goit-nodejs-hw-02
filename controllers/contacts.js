@@ -12,8 +12,8 @@ const listContacts = async (req, res, next) => {
 
 const getContactById = async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const contact = await contacts.getById(id);
+    const { _id } = req.params;
+    const contact = await contacts.getById(_id);
     if (!contact) {
       throw createError(404, "Not found");
     }
@@ -25,9 +25,9 @@ const getContactById = async (req, res, next) => {
 
 const addContact = async (req, res, next) => {
   try {
-    const { id } = req.user;
+    const { _id } = req.user;
     console.log(req.user);
-    const contact = await contacts.create(req.body, id);
+    const contact = await contacts.create(req.body, _id);
     res.status(201).json(contact);
   } catch (error) {
     if (error.message.includes("duplicate")) {
