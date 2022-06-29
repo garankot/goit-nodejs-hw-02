@@ -9,7 +9,7 @@ const sendEmail = async (userEmail, code) => {
 
   const msg = {
     to: userEmail,
-    from: "*****@gmail.com",
+    from: "garanko.t@gmail.com",
     subject: "Confirm your email",
     html: `<h4>Click on this link to confirm registration ${link}</h4>`,
   };
@@ -18,7 +18,7 @@ const sendEmail = async (userEmail, code) => {
     console.log("result", result);
   } catch (e) {
     console.log("ERROR", e);
-    throw e;
+    throw e.message;
   }
 };
 

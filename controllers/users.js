@@ -1,4 +1,3 @@
-// const { user } = require("../models");
 const authService = require("../services/auth.service");
 const emailService = require("../services/email.service");
 const userService = require("../services/user.service");
@@ -50,12 +49,12 @@ const resend = async (req, res, next) => {
       throw createError(404, "User not found");
     }
     if (!user.verify) {
-      throw createError(401, "User not authorized");
+      throw createError(400, "User not confirmed. Check your email");
     }
     await emailService.sendEmail(user.email, user.verificationToken);
     return res.status(200).json({
       code: 200,
-      message: "Check your email",
+      message: "Verification email sent",
     });
   } catch (e) {
     next(e);

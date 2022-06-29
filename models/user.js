@@ -70,10 +70,20 @@ const schemaLogin = Joi.object({
   password: Joi.string().required(),
 });
 
+const schemaVerify = Joi.object({
+  email: Joi.string()
+    .email({
+      minDomainSegments: 2,
+      tlds: { allow: ["com", "net"] },
+    })
+    .required().messages,
+});
+
 const User = model("user", schema);
 
 module.exports = {
   User,
   schemaRegister,
   schemaLogin,
+  schemaVerify,
 };
