@@ -71,12 +71,7 @@ const schemaLogin = Joi.object({
 });
 
 const schemaVerify = Joi.object({
-  email: Joi.string()
-    .email({
-      minDomainSegments: 2,
-      tlds: { allow: ["com", "net"] },
-    })
-    .required().messages,
+  email: Joi.string().required().messages,
 });
 
 const User = model("user", schema);

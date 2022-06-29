@@ -87,6 +87,7 @@ const getCurrentUser = async (req, res, next) => {
       email: data.email,
       subscription: data.subscription,
       avatarURL: data.avatarURL,
+      verificationToken: data.verificationToken,
     });
   } catch (e) {
     next(e);

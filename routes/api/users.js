@@ -38,6 +38,6 @@ router.patch(
   }
 );
 router.get("/verify/:verificationToken", confirm);
-router.post("/verify", validateRequest(schemaLogin), resend);
+router.post("/verify", validateRequest(schemaVerify), resend);
 
 module.exports = router;
