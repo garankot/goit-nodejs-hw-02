@@ -4,6 +4,8 @@ const {
   loginUser,
   logoutUser,
   getCurrentUser,
+  confirm,
+  resend,
 } = require("../../controllers/users");
 const router = express.Router();
 const { schemaRegister, schemaLogin } = require("../../models/user");
@@ -31,5 +33,7 @@ router.patch(
     }
   }
 );
+router.get("/verify/:verificationToken", confirm);
+router.post("/verify", resend);
 
 module.exports = router;
