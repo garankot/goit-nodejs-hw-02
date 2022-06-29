@@ -50,7 +50,7 @@ const resend = async (req, res, next) => {
       throw createError(404, "User not found");
     }
     if (!user.verify) {
-      // ??
+      throw createError(401, "User not authorized");
     }
     await emailService.sendEmail(user.email, user.verificationToken);
     return res.status(200).json({
