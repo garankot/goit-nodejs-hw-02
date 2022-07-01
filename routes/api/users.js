@@ -4,9 +4,15 @@ const {
   loginUser,
   logoutUser,
   getCurrentUser,
+  confirm,
+  resend,
 } = require("../../controllers/users");
 const router = express.Router();
-const { schemaRegister, schemaLogin } = require("../../models/user");
+const {
+  schemaRegister,
+  schemaLogin,
+  schemaVerify,
+} = require("../../models/user");
 const { validateRequest } = require("../../middlewares/validateRequest");
 const { auth, upload } = require("../../middlewares");
 const { uploadImage } = require("../../services/image.service");
@@ -31,5 +37,7 @@ router.patch(
     }
   }
 );
+router.get("/verify/:verificationToken", confirm);
+router.post("/verify", validateRequest(schemaVerify), resend);
 
 module.exports = router;
